@@ -1,0 +1,63 @@
+2021/01/11 14:46:43 Attempt 1 of http call to http://10.0.0.8:16384/sendlogstoartifacts/info
+2021/01/11 14:46:43 Attempt 1 of http call to http://10.0.0.8:16384/sendlogstoartifacts/status
+[2021-01-11T14:46:44.688633] Entering context manager injector.
+[context_manager_injector.py] Command line Options: Namespace(inject=['ProjectPythonPath:context_managers.ProjectPythonPath', 'RunHistory:context_managers.RunHistory', 'TrackUserError:context_managers.TrackUserError'], invocation=['train.py', '--n_estimators', '--max_features', '1', '--max_features', 'log2', '--n_estimators', '10'])
+Script type = None
+Starting the daemon thread to refresh tokens in background for process with pid = 107
+Entering Run History Context Manager.
+/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/site-packages/urllib3/util/retry.py:439: DeprecationWarning: Using 'method_whitelist' with Retry is deprecated and will be removed in v2.0. Use 'allowed_methods' instead
+  DeprecationWarning,
+[2021-01-11T14:46:49.125771] Current directory: /mnt/batch/tasks/shared/LS_root/jobs/quick-starts-ws-134335/azureml/hd_deecfb3e-245a-4873-8331-9caa44254f1a_2/mounts/workspaceblobstore/azureml/HD_deecfb3e-245a-4873-8331-9caa44254f1a_2
+[2021-01-11T14:46:49.126045] Preparing to call script [train.py] with arguments:['--n_estimators', '--max_features', '1', '--max_features', 'log2', '--n_estimators', '10']
+[2021-01-11T14:46:49.126168] After variable expansion, calling script [train.py] with arguments:['--n_estimators', '--max_features', '1', '--max_features', 'log2', '--n_estimators', '10']
+
+usage: train.py [-h] [--n_estimators N_ESTIMATORS]
+                [--max_features MAX_FEATURES]
+train.py: error: argument --n_estimators: expected one argument
+Starting the daemon thread to refresh tokens in background for process with pid = 107
+
+
+[2021-01-11T14:46:49.511517] The experiment failed with exit code: 2. Finalizing run...
+/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/site-packages/urllib3/util/retry.py:439: DeprecationWarning: Using 'method_whitelist' with Retry is deprecated and will be removed in v2.0. Use 'allowed_methods' instead
+  DeprecationWarning,
+Cleaning up all outstanding Run operations, waiting 900.0 seconds
+1 items cleaning up...
+Cleanup took 0.054517269134521484 seconds
+Traceback (most recent call last):
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 1762, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 1968, in _parse_known_args
+    start_index = consume_optional(start_index)
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 1898, in consume_optional
+    arg_count = match_argument(action, selected_patterns)
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 2062, in _match_argument
+    raise ArgumentError(action, msg)
+argparse.ArgumentError: argument --n_estimators: expected one argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 83, in <module>
+    main()
+  File "train.py", line 44, in main
+    args = parser.parse_args()
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 1730, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 1769, in parse_known_args
+    self.error(str(err))
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 2389, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/azureml-envs/azureml_a1736710baabf05d37337a101fa8d6d1/lib/python3.6/argparse.py", line 2376, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+[2021-01-11T14:46:49.722019] Finished context manager injector with SystemExit exception.
+2021/01/11 14:46:50 Failed to parse control script error: /mnt/batch/tasks/workitems/47cfe3f6-08d5-4911-9566-ae3a0f0ace93/job-1/hd_deecfb3e-245a-487_0dd99151-f221-44d8-99cd-4cd7b694ed74/wd/runTaskLetTask_error.json to json File /mnt/batch/tasks/workitems/47cfe3f6-08d5-4911-9566-ae3a0f0ace93/job-1/hd_deecfb3e-245a-487_0dd99151-f221-44d8-99cd-4cd7b694ed74/wd/runTaskLetTask_error.json doesn't exist
+2021/01/11 14:46:50 Failed to run the wrapper cmd with err: exit status 2
+2021/01/11 14:46:50 Attempt 1 of http call to http://10.0.0.8:16384/sendlogstoartifacts/status
+2021/01/11 14:46:50 mpirun version string: {
+Intel(R) MPI Library for Linux* OS, Version 2018 Update 3 Build 20180411 (id: 18329)
+Copyright 2003-2018 Intel Corporation.
+}
+2021/01/11 14:46:50 MPI publisher: intel ; version: 2018
+2021/01/11 14:46:50 Process Exiting with Code:  2

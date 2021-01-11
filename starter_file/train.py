@@ -61,7 +61,7 @@ def main():
                                    #name='Placement Dataset',
                                    #description='MBA placement dataset for Capstone Project')
     dataset_name='Placement Dataset'
-    ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+    ds = Dataset.get_by_name(workspace=ws, name=dataset_name)
     x, y = clean_data(ds)
 
     # TODO: Split data into train and test sets.
