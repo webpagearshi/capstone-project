@@ -40,28 +40,20 @@ def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--n_estimators', type=int, default=100, help="The number of trees in the forest. High value gives better performance.")
-    parser.add_argument('--max_features', type=int, default="auto", help="The number of features to consider when looking for the best split. For int, then consider max_features features at each split.")
+    parser.add_argument('--min_samples_split', type=int, default=2, help="The minimum number of samples required to split an internal node")
     args = parser.parse_args()
 
     run = Run.get_context()
     workspace = run.experiment.workspace
     run.log("n_estimators:", np.int(args.n_estimators))
-    run.log("Maximum Features:", np.int(args.max_features))
+    run.log("Minimum samples split:", np.int(args.min_samples_split))
 
     # TODO: Create TabularDataset using TabularDatasetFactory
     # Data is located at:
     # "https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv"
 
-    #ds = ### YOUR CODE HERE ###
-    #ds = TabularDatasetFactory.from_delimited_files(path = 
-    #"https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv")
-    
-    #register dataset in workspace
-    #ds = ds.register(workspace=ws,
-                                   #name='Placement Dataset',
-                                   #description='MBA placement dataset for Capstone Project')
-    dataset_name='Placement Dataset'
-    ds = Dataset.get_by_name(workspace=ws, name=dataset_name)
+    ds = TabularDatasetFactory.from_delimited_files(path = 
+    "https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv")
     x, y = clean_data(ds)
 
     # TODO: Split data into train and test sets.
@@ -69,7 +61,7 @@ def main():
     ### YOUR CODE HERE ###a
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size =0.2, random_state=223)
 
-    model = RandomForestClassifier(n_estimators=args.n_estimators, max_features=args.max_features).fit(x_train, y_train)
+    model = RandomForestClassifier(n_estimators=args.n_estimators, min_samples_split=args.min_samples_split).fit(x_train, y_train)
 
     accuracy = model.score(x_test, y_test)
 
