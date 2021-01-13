@@ -44,7 +44,7 @@ def main():
     args = parser.parse_args()
 
     run = Run.get_context()
-    workspace = run.experiment.workspace
+    ws = run.experiment.workspace
     run.log("n_estimators:", np.int(args.n_estimators))
     run.log("Minimum samples split:", np.int(args.min_samples_split))
 
@@ -52,8 +52,12 @@ def main():
     # Data is located at:
     # "https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv"
 
-    ds = TabularDatasetFactory.from_delimited_files(path = 
-    "https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv")
+    dataset_name = 'Placement Dataset'
+
+# Get a dataset by name
+    ds = Dataset.get_by_name(workspace=ws, name=dataset_name)
+    #ds = TabularDatasetFactory.from_delimited_files(path = 
+    #"https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv")
     x, y = clean_data(ds)
 
     # TODO: Split data into train and test sets.
