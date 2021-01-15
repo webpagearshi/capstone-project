@@ -49,28 +49,27 @@ def main():
     run.log("n_estimators:", np.int(args.n_estimators))
     run.log("Minimum samples split:", np.int(args.min_samples_split))
 
-    # TODO: Create TabularDataset using TabularDatasetFactory
     # Data is located at:
     # "https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv"
 
-    dataset_name = 'Placement Dataset-x'
+    #The dataset is registered using Python SDK in the notebook
+    dataset_name = 'Placement Dataset'
 
     # Get a dataset by name
     ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
-    #ds = TabularDatasetFactory.from_delimited_files(path = 
-    #"https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv")
     x, y = clean_data(ds)
 
     # TODO: Split data into train and test sets.
 
-    ### YOUR CODE HERE ###a
+    ### YOUR CODE HERE ###
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size =0.2, random_state=223)
 
     model = RandomForestClassifier(n_estimators=args.n_estimators, min_samples_split=args.min_samples_split).fit(x_train, y_train)
 
     accuracy = model.score(x_test, y_test)
 
-    run.log("Accuracy", np.float(accuracy)) 
+    run.log("Accuracy", np.float(accuracy))
+    #save the best model
     os.makedirs('outputs', exist_ok = True)
     
     import joblib
