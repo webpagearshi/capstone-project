@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 from azureml.core.run import Run
+from azureml.core.dataset import Dataset
 from azureml.data.dataset_factory import TabularDatasetFactory
 
 
@@ -52,12 +53,12 @@ def main():
     # Data is located at:
     # "https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv"
 
-    dataset_name = 'Placement Dataset'
+    dataset_name = 'Placement Dataset-x'
 
     # Get a dataset by name
-    #ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
-    ds = TabularDatasetFactory.from_delimited_files(path = 
-    "https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv")
+    ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+    #ds = TabularDatasetFactory.from_delimited_files(path = 
+    #"https://raw.githubusercontent.com/webpagearshi/capstone-project/master/starter_file/placement_data_mba.csv")
     x, y = clean_data(ds)
 
     # TODO: Split data into train and test sets.
@@ -71,8 +72,8 @@ def main():
 
     run.log("Accuracy", np.float(accuracy)) 
     os.makedirs('outputs', exist_ok = True)
-
     
+    import joblib
     joblib.dump(value = model, filename= 'outputs/model.joblib')
 
 if __name__ == '__main__':
