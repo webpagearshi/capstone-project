@@ -85,11 +85,13 @@ We could have improved the model performance by-
 
 **RunDetails for AutoML Model**
 
+ ![RunDetails Widget](Images/Automl-RunWidgets-a.JPG "Progress of Training Runs")
  ![RunDetails Widget](Images/Automl-RunWidgets-b.JPG "Progress of Training Runs")
  ![RunDetails Widget](Images/Automl-RunWidgets-c.JPG "Progress of Training Runs")
  ![RunDetails Widget](Images/Automl-RunWidgets-d.JPG "Progress of Training Runs")
 
 The RunDetail Widgets in the Jupyter Notebook show us the progress of all the training runs with their status and accuracy value.
+
 **Best Model**
 
 ![Best Model](Images/Best-Model-Automl.JPG "Best Model for AutoML")
