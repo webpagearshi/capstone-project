@@ -78,6 +78,7 @@ I have used a custom environment saved as file cap-env.yml.
 Results- The best performing model uses the algorithm Voting Ensemble and has an accuracy of 0.88954.
 Voting implements soft-voting, which uses weighted averages.
 The parameters of the model are - reg_lambda=0.8333333333333334, scale_pos_weight=1, seed=None, silent=None, subsample=1, tree_method='auto', verbose=-10 and  verbosity=0.
+**Improvements**-
 We could have improved the model performance by-
 1. Using a different primary metric like AUC_weighted, which is arithmetic mean of the score for each class, weighted by the number of true instances in each class as it is relevant even when there is a huge class imbalance.
 2. featurization can be set to 'FeaturizationConfig' to customize featurization. This helps us to enable more featurization, such as missing-values imputation, encoding, and transforms. The advantage of customizing featurization is that when we use the model for predictions, the same featurization steps that are applied during training are applied to your input data automatically.
@@ -108,8 +109,9 @@ I have used a cutom environment saved as file rf_env.yml.
 
 <a name="result-hyper"></a>
 ### Results
-The best performing model has n_estimators value 10 and min_samples_split value 4 and the accuracy of the model is 0.8837209302325582
-We have used the RandomForest algorithm. The model can be improved by experimenting with other classification models like Logistic Regression, Ridge Classifier and SVM. We can also experiment with continuous hyperparameters instead of discrete values.
+**Result** -The best performing model has n_estimators value 10 and min_samples_split value 4 and the accuracy of the model is 0.8837209302325582
+We have used the RandomForest algorithm. 
+**Improvement Suggestion**-The model can be improved by experimenting with other classification models like Logistic Regression, Ridge Classifier and SVM. We can also experiment with continuous hyperparameters instead of discrete values.
 
 **RunDetails for Hyperdrive Model**
 
@@ -176,7 +178,7 @@ and then convert it into JSON string by using json.dumps(data).
 Here we can see the prediction result for the test data send as sample request.
 
 ## Screen Recording
-[Screencast Link for Capstone Project](https://youtu.be/LMuOyrsmqs8 "Screencast for Project3-Capstone Project")
+[Screencast Link for Capstone Project](https://youtu.be/Ckqxar3BVCw "Screencast for Project3-Capstone Project")
 
 ## Acknowledgement
 I would like to thank Udacity for the course work and Microsoft for providing this opportunity.
